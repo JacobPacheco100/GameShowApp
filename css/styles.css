@@ -161,3 +161,7 @@ button {
 .lose a {
   color: var(--color-lose);
 }
+
+.btn__reset:hover {
+  cursor: pointer;
+}
