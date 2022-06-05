@@ -165,3 +165,7 @@ button {
 .btn__reset:hover {
   cursor: pointer;
 }
+
+.clear {
+  background-color: white !important;
+}
