@@ -64,10 +64,13 @@ qwerty.addEventListener('click', e => {
     const btnLetter = btn.textContent
     if (btn.tagName === 'BUTTON') {
         btn.className += 'chosen'
-        const check = checkLetter(btnLetter)
-        if (check !== true) {
+        let check = checkLetter(btnLetter)
+        if (check === false) {
             missed++
-            console.log('you missed');
+            console.log(missed); // this is where im at!
+            btn.style.background = '#ff931f'
+        } else {
+            btn.style.background = ''
         }
     }
 })
