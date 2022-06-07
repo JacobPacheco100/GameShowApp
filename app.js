@@ -5,6 +5,9 @@ const overlay = document.getElementById('overlay')
 
 
 const startButton = document.querySelector('.btn__reset')
+startButton.addEventListener('click', () => {
+    overlay.style.display = 'none'
+})
 
 let missed = 0
 
@@ -18,17 +21,15 @@ const phraseList = [
     "john cena",
     "doctor strange",
 ]
-// getrandom phrase,
-//then turn phrase into array of letters
+let currentPhrase
+
 const getRandomPhrasesAsArray = arr => {    // phraseList
     function random(arr) {
         return Math.floor(Math.random() * arr.length)
     }
-    let currentPhrase = phraseList[random(phraseList)].split('')
+    currentPhrase = phraseList[random(phraseList)].split('')
     return currentPhrase
 }
-
-// create li, store getRan in li, add class
 const addPhraseToDisplay = arr => { 
     for (i = 0; i < arr.length; i++) {
         const newLi = document.createElement('li')
@@ -45,17 +46,32 @@ const addPhraseToDisplay = arr => {
 addPhraseToDisplay(getRandomPhrasesAsArray(phraseList))
 
 const checkLetter = button => {
-    
+    let match 
+    const lis = document.getElementsByTagName('li')
+    for (i = 0; i < currentPhrase.length; i++) {
+        if (button === lis[i].textContent) {
+            lis[i].className += 'show'
+            match = true
+        } else {
+            match = false
+        }
+    }
+    return match
 }
+
+qwerty.addEventListener('click', e => {
+    const btn = e.target
+    const btnLetter = btn.textContent
+    if (btn.tagName === 'BUTTON') {
+        btn.className += 'chosen'
+        const check = checkLetter(btnLetter)
+        if (check !== true) {
+            missed++
+            console.log('you missed');
+        }
+    }
+})
 
 const checkWin = () => {
     
 }
-
-startButton.addEventListener('click', () => {
-    overlay.style.display = 'none'
-})
-
-qwerty.addEventListener('click', e => {
-    
-})
