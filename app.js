@@ -9,12 +9,12 @@ const heartArray = document.querySelectorAll('.tries img');
 const heart = document.querySelector('.tries img');
 
 let missed = 0;
-let phrases = ['heart of gold',
-			   'love is blind',
-			   'cool as a cucumber',
-			   'bring home the bacon',
-			   'saved by the bell',
-			   'dressed to the nines'];
+let phrases = ['excuse me',
+			   'sea world',
+			   'justice for johny',
+			   'i will survive',
+			   'stand by me',
+			   'fight club'];
 
 startButton.addEventListener('click', () => {
 	if (startButton.textContent === 'Start Game') {
